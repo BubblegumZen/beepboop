@@ -9,9 +9,9 @@ load_dotenv(".env")
 intents = discord.Intents.all()
 intents.members = True
 
-bot = commands.Bot(command_prefix=".", intents=intents)
+bot = commands.Bot(command_prefix="?", intents=intents)
 extensions = ["greetings", "miscellaneous", "admin", "music",
-              "help", "chatbot", "error_handler"]
+              "help", "chatbot", "error_handler", "server_stats"]
 
 for ext in extensions:
     bot.load_extension(f"extensions.{ext}")
@@ -25,5 +25,6 @@ async def on_ready():
     print(f"Bot loaded successfully")
 
 
-TOKEN = os.getenv("TOKEN")
-bot.run(TOKEN)
+# Run the development bot instead of the stable bot
+DEV_TOKEN = os.getenv("DEV_TOKEN")
+bot.run(DEV_TOKEN)

@@ -72,7 +72,7 @@ class Miscellaneous(commands.Cog):
         msg = await ctx.channel.send(embed=embed)
 
         # Add the reactions for yes/no
-        await msg.add_reaction("✔️")
+        await msg.add_reaction("✅")
         await msg.add_reaction("❌")
 
     @commands.Cog.listener()
